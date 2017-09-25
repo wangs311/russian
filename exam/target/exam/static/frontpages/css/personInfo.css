@@ -1,0 +1,71 @@
+#main {
+	width: 100%;
+	min-height: 840px;
+}
+#content {
+	width: 77%;
+	margin: 60px auto 0;
+	background-color: #FFF6ED;
+	min-height: 660px;
+}
+.warning {
+	color: red;
+}
+#content-header {
+	height: 59px;
+	line-height: 64px;
+	text-align: center;
+	font-size: 22px;
+	background-color: #B8AC7A;
+}
+
+#btn {
+	margin-left: 30px;
+}
+
+#content .score {
+	display: inline-block;
+	width: 100%;
+	margin: 12px auto;
+	vertical-align: top;
+}
+#content .score>p {
+	width: 310px;
+	margin: 0 auto;
+}
+#content .score .book {
+	width: 85px;
+	height: 60px;
+	margin: 0 auto;
+	background-image: url(../images/book.png);
+}
+
+#content .score span {
+	display: inline-block;
+	margin-top: 30px;
+	font-size: 20px;
+}
+#content .score table {
+	width: 60%;
+	margin: 12px auto;
+	border-right: 2px solid rgb(169,159,120);
+	border-bottom: 2px solid rgb(169,159,120);
+}
+#content .score table td {
+	width: 117px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-left:2px solid rgb(169,159,120);
+	border-top: 2px solid rgb(169,159,120);
+}
+#content .score table tr {
+	cursor: pointer;
+}
+#content .score table tr a {
+	text-decoration: none;
+	color: black;
+}
+#content .score table tr a:hover {
+	color: orange;
+}
