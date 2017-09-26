@@ -12,9 +12,9 @@
 
 <body>
 <div class="wrap">
-	<div id="header">
-		<div id="logo"><img src="/exam/static/frontpages/images/logo.png"></div>
-		<div id="sign">
+	<div id="header" class="row">
+		<div id="logo" class="col-md-4"><img src="/exam/static/frontpages/images/logo.png" class="img-responsive"></div>
+		<div id="sign" class="col-md-3">
 			<div id="leaf"></div>
 			<a href="/studentController/logout" id="login">登出</a>
 		</div>

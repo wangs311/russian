@@ -24,6 +24,7 @@
 	font-size: 18px;
 	line-height: 45px;
 	margin-right:15px;
+	margin-bottom: 10px;
 	text-align: center;
 }
 #nav .nav-item a {
@@ -38,7 +39,7 @@
 	left: 10px;
 	top: 137px;
 	width:70px;
-	height: 269px; 
+	height: 269px;
 	font-size: 29px;
 	margin: 0 auto;
 	background-color: rgb(193,185,153);
@@ -54,7 +55,7 @@
 	height: 624px;
 	overflow-y: auto;
 	margin-top:30px;
-	padding-top:40px; 
+	padding-top:40px;
 	background-color: rgb(241,242,226);
 	border:2px solid rgb(193,185,153);
 }
@@ -114,34 +115,41 @@ label span {
 label input {
 	opacity: 0;
 }
+textarea {
+	resize: none !important;
+}
 .selected {
 	background-color: rgb(255,239,176);
 }
-.shortanswer input[type="text"] {
+.shortanswer input[type="text"],.russiantochina input[type="text"] {
 	margin-bottom:18px;
 	height: 40px;
 	width: 80%;
 	margin: 0 auto 18px auto;
 	font-size: 18px;
 	background-color: rgb(241,242,226);
-	border-color:#000000;   
-	border-style:solid;   
-	border-top-width:0px;   
-	border-right-width:0px;   
-	border-bottom-width:3px;   
-	border-left-width:0px; 
+	border-color:#000000;
+	border-style:solid;
+	border-top-width:0px;
+	border-right-width:0px;
+	border-bottom-width:3px;
+	border-left-width:0px;
+}
+.longarticle {
+	width: 89%;
+	margin:2% auto 0 auto;
 }
 .longanswer  input[type="text"] {
 	height: 110px;
 	width: 60%;
 	background-color: rgb(241,242,226);
-	border: 1px solid #000; 
+	border: 1px solid #000;
 	resize: none;
 }
 #button {
-/*	position: absolute;
-	top:785px;
-	right: 200px;*/
+	/*	position: absolute;
+        top:785px;
+        right: 200px;*/
 	margin-top: 300px;
 	margin-left: 70%;
 	width: 91px;
@@ -187,7 +195,7 @@ label input {
 	text-align: center;
 	background-color: rgb(193,185,153);
 }
-#que-situation {	
+#que-situation {
 	height: 60px;
 	line-height: 60px;
 	font-size: 1.5em;
