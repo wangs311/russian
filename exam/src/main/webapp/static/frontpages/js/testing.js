@@ -319,8 +319,8 @@ $(function () {
                 "answer": JSON.stringify(finishAnswer)
             },
             // data:$('#que').serialize(),
-            url: "testing.json", //请求的地址
-            datatype: "json",
+            url: "http://localhost:8080/exam/bg/front_exam?to=add_student_done", //请求的地址
+            dataType: "json",
             cache: false,
             async: false
         });

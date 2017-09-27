@@ -28,8 +28,8 @@
 				</ul>
 			</div>
 			<div id="left-maincontent" class="content">
-				<form id="que" action="/exam/bg/front_exam?to=add_student_done" method="post">
-					<input type="submit" name="submit" style="display:none;" id="submit">
+				<form id="que">
+					
 				</form>
 			</div>
 		</div>
