@@ -1,72 +1,69 @@
 $(function () {
     /*得到题目数据*/
-    var examinationId = document.getElementById("examinationId").innerHTML;
+    var finishAnswers;
     var url = document.location.href.split("=")[1];
     $.ajax({
         type: "POST", //请求方式
-        url: "http://localhost:8080/exam/ExaminationController/toExamination?examinationId="+url+"", //请求的地址
+        url: "http://localhost:8080/exam/ExaminationController/toExamination?examinationId=" + url + "", //请求的地址
         datatype: "json",
         cache: false,
         async: false,
         success: function (data) {
+            finishAnswers = data;
+            console.log(finishAnswers);
             // var data =(new Function("","return "+x))();
             for (var i = 0; i < data.length; i++) {
                 // 将大题类型放到导航中
                 $("#nav ul").append("<li class='nav-item'><a class='nav-href' to=" + data[i].questionsTitle + ">" + data[i].questionsTitle + "</a></li>");
-                $("#que").append("<div class='nav-content' id='bigQuestion"+i+"'><div class='que-type'><span>" + data[i].questionsTitle + "</span></div></div>");
+                $("#que").append("<div class='nav-content' id='bigQuestion" + i + "'><div class='que-type'><span>" + data[i].questionsTitle + "</span></div></div>");
             }
 
             // //循环出大题 将大题放到对应的小题中
             for (var j = 0; j < data.length; j++) {
                 if (data[j].questionsTypeId == "517ada9e-465c-4c78-9551-9bfe52e4d1a6") { //选择题
-                    console.log(j);
                     for (var h = 0; h < data[j].questionList.length; h++) {
                         $(".nav-content:eq(" + j + ")").append("<div class='ques choice'></div>");
                         $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append("<span class='que-number' mark=" + data[j].questionList[h].questionMark + " analysis=" + data[j].questionList[h].questionAnalysis + "></span>");
                         $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append("<span class='que'>" + data[j].questionList[h].outline[0] + "</span><br />");
-                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[h].outline[1] + '"><span class="ans ans-a">A. </span><span class="ans-content">' + data[j].questionList[h].outline[1] + '</span></label><br>');
-                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[h].outline[2] + '"><span class="ans ans-b">B. </span><span class="ans-content">' + data[j].questionList[h].outline[2] + '</span></label><br>');
-                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[h].outline[3] + '"><span class="ans ans-c">C. </span><span class="ans-content">' + data[j].questionList[h].outline[3] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="' + data[j].questionList[h].id + '" value="' + data[j].questionList[h].outline[1] + '"><span class="ans ans-a">A. </span><span class="ans-content">' + data[j].questionList[h].outline[1] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="' + data[j].questionList[h].id + '" value="' + data[j].questionList[h].outline[2] + '"><span class="ans ans-b">B. </span><span class="ans-content">' + data[j].questionList[h].outline[2] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="' + data[j].questionList[h].id + '" value="' + data[j].questionList[h].outline[3] + '"><span class="ans ans-c">C. </span><span class="ans-content">' + data[j].questionList[h].outline[3] + '</span></label><br>');
                         if (data[j].questionList[h].outline[3]) {
-                            $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[h].outline[4] + '"><span class="ans ans-d">D. </span><span class="ans-content">' + data[j].questionList[h].outline[4] + '</span></label><br>');
+                            $(".nav-content:eq(" + j + ")>.choice:eq(" + h + ")").append('<label><input type="radio" name="' + data[j].questionList[h].id + '" value="' + data[j].questionList[h].outline[4] + '"><span class="ans ans-d">D. </span><span class="ans-content">' + data[j].questionList[h].outline[4] + '</span></label><br>');
                         }
                     }
-                }
-                else if (data[j].questionsTypeId == "07aad1a5-d3c1-4f2d-b084-2be68fedc2a2") { //填空题
+                } else if (data[j].questionsTypeId == "07aad1a5-d3c1-4f2d-b084-2be68fedc2a2") { //填空题
                     for (var m = 0; m < data[j].questionList.length; m++) {
                         $(".nav-content:eq(" + j + ")").append("<div class='ques shortanswer'></div>");
                         $(".nav-content:eq(" + j + ")>.shortanswer:eq(" + m + ")").append("<span class='que-number' mark=" + data[j].questionList[m].questionMark + " analysis=" + data[j].questionList[m].questionAnalysis + "></span>");
                         $(".nav-content:eq(" + j + ")>.shortanswer:eq(" + m + ")").append("<span class='que'>" + data[j].questionList[m].questionOutline + "</span><br />");
-                        $(".nav-content:eq(" + j + ")>.shortanswer:eq(" + m + ")").append("<span class='answer'>作答: </span><input type='text' name='studentSubjectiveAnswer'>")
+                        $(".nav-content:eq(" + j + ")>.shortanswer:eq(" + m + ")").append("<span class='answer'>作答: </span><input type='text' name='" + data[j].questionList[m].id + "'>")
                     }
-                }
-                else if (data[j].questionsTypeId == "61ee983d-3fce-4e13-a146-ca72b5a5a82e") { //俄译汉
+                } else if (data[j].questionsTypeId == "61ee983d-3fce-4e13-a146-ca72b5a5a82e") { //俄译汉
                     for (var k = 0; k < data[j].questionList.length; k++) {
                         $(".nav-content:eq(" + j + ")").append("<div class='ques russiantochina'></div>");
                         $(".nav-content:eq(" + j + ")>.russiantochina:eq(" + k + ")").append("<span class='que-number' mark=" + data[j].questionList[k].questionMark + " analysis=" + data[j].questionList[k].questionAnalysis + "></span>");
                         $(".nav-content:eq(" + j + ")>.russiantochina:eq(" + k + ")").append("<span class='que'>" + data[j].questionList[k].questionOutline + "</span><br />");
-                        $(".nav-content:eq(" + j + ")>.russiantochina:eq(" + k + ")").append("<span class='answer'>作答: </span><input type='text' name='studentSubjectiveAnswer'>")
+                        $(".nav-content:eq(" + j + ")>.russiantochina:eq(" + k + ")").append("<span class='answer'>作答: </span><input type='text' name='" + data[j].questionList[k].id + "'>")
                     }
-                }
-                else if (data[j].questionsTypeId == "2c9903c4-d9ac-49f9-ab28-cf4a8fe906ae") { //作文
+                } else if (data[j].questionsTypeId == "2c9903c4-d9ac-49f9-ab28-cf4a8fe906ae") { //作文
                     for (var n = 0; n < data[j].questionList.length; n++) {
-                        $(".nav-content:eq(" + j + ")").append("<div class='ques longanswer article' mark=" + data[j].questionList[n].questionMark + " analysis=" + data[j].questionList[n].questionAnalysis + "></div>");
+                        $(".nav-content:eq(" + j + ")").append("<div class='ques article' mark=" + data[j].questionList[n].questionMark + " analysis=" + data[j].questionList[n].questionAnalysis + "></div>");
                         $(".nav-content:eq(" + j + ")>.article:eq(" + n + ")").append("<span class='que-number'></span>");
                         $(".nav-content:eq(" + j + ")>.article:eq(" + n + ")").append("<span class='que'>" + data[j].questionList[n].questionOutline + "</span><br />");
-                        $(".nav-content:eq(" + j + ")>.article:eq(" + n + ")").append("<span class='answer'>请在下方区域作答: </span><textarea name='studentSubjectiveAnswer' class='form-control' rows='3'/textarea>")
+                        $(".nav-content:eq(" + j + ")>.article:eq(" + n + ")").append("<span class='answer'>请在下方区域作答: </span><textarea name='" + data[j].questionList[n].id + "' class='form-control' rows='3'/textarea>")
                     }
-                }
-                else if (data[j].questionsTypeId == "6167e20f-b0a8-4332-aa14-dd3dd1acda22") { //完形填空
-                    $(".nav-content:eq(" + j +" )").append("<p class='longarticle'>"+ data[j].questionsArticle+"</p>");
+                } else if (data[j].questionsTypeId == "6167e20f-b0a8-4332-aa14-dd3dd1acda22") { //完形填空
+                    $(".nav-content:eq(" + j + " )").append("<p class='longarticle'>" + data[j].questionsArticle + "</p>");
                     for (var p = 0; p < data[j].questionList.length; p++) {
                         $(".nav-content:eq(" + j + ")").append("<div class='ques articlechoice' mark=" + data[j].questionList[p].questionMark + " analysis=" + data[j].questionList[p].questionAnalysis + "></div>");
                         $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append("<span class='que-number'></span>");
-                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append("<span class='que'>"+ data[j].questionList[p].questionOutline+"</span><br />");
-                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[p].outline[0] + '"><span class="ans ans-a">A. </span><span class="ans-content">' + data[j].questionList[p].outline[1] + '</span></label><br>');
-                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[p].outline[1] + '"><span class="ans ans-b">B. </span><span class="ans-content">' + data[j].questionList[p].outline[2] + '</span></label><br>');
-                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[p].outline[2] + '"><span class="ans ans-c">C. </span><span class="ans-content">' + data[j].questionList[p].outline[3] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append("<span class='que'>" + data[j].questionList[p].questionOutline + "</span><br />");
+                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="' + data[j].questionList[p].id + '" value="' + data[j].questionList[p].outline[0] + '"><span class="ans ans-a">A. </span><span class="ans-content">' + data[j].questionList[p].outline[1] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="' + data[j].questionList[p].id + '" value="' + data[j].questionList[p].outline[1] + '"><span class="ans ans-b">B. </span><span class="ans-content">' + data[j].questionList[p].outline[2] + '</span></label><br>');
+                        $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="' + data[j].questionList[p].id + '" value="' + data[j].questionList[p].outline[2] + '"><span class="ans ans-c">C. </span><span class="ans-content">' + data[j].questionList[p].outline[3] + '</span></label><br>');
                         if (data[j].questionList[p].outline[3]) {
-                            $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="studentObjectiveAnswer" value="' + data[j].questionList[p].outline[3] + '"><span class="ans ans-d">D. </span><span class="ans-content">' + data[j].questionList[p].outline[3] + '</span></label><br>');
+                            $(".nav-content:eq(" + j + ")>.articlechoice:eq(" + p + ")").append('<label><input type="radio" name="' + data[j].questionList[p].id + '" value="' + data[j].questionList[p].outline[3] + '"><span class="ans ans-d">D. </span><span class="ans-content">' + data[j].questionList[p].outline[3] + '</span></label><br>');
                         }
                     }
                 }
@@ -82,6 +79,7 @@ $(function () {
             }
         }
     });
+
     /*最开始出现的模态框*/
     $('#demoModal').modal('show');
     var ques = document.getElementsByClassName("ques").length;
@@ -160,14 +158,6 @@ $(function () {
     }
     addId();
 
-    /*更新每到小题的name*/
-    var ques = document.getElementsByClassName("ques");
-    for (var u = 0; u < ques.length; u++) {
-        var index = ques[u].getAttribute("index");
-        $("")
-    }
-
-
 
     /*习题类型导航选中样式*/
     $(".nav-item").click(function () {
@@ -179,6 +169,7 @@ $(function () {
 
     /*单选题*/
     $(".choice").on('click', checkChoice);
+    $(".articlechoice").on('click', checkChoice);
 
     function checkChoice() {
         var inputs = this.getElementsByTagName("input");
@@ -212,6 +203,7 @@ $(function () {
     }
     /*简答题*/
     $(".shortanswer").on('keyup', checkShortanswer);
+    $(".russiantochina").on('keyup', checkShortanswer);
 
     function checkShortanswer() {
         var texts = this.getElementsByTagName("input");
@@ -225,11 +217,12 @@ $(function () {
         queDoneNumber();
     }
     /*长答题*/
-    $(".longanswer").on('keyup', checklonganswer);
+
+    $(".article").on('keyup', checklonganswer);
 
     function checklonganswer() {
         var texts = this.getElementsByTagName("textarea");
-        var index = texts[0].getAttribute("name");
+        var index = this.getAttribute("index");
         var buttons = document.getElementsByClassName("buttons");
         if (texts[0].value.length) {
             buttons[index - 1].setAttribute("class", "buttons already");
@@ -274,8 +267,7 @@ $(function () {
             move = Math.abs(h1) - Math.abs(hx);
         }
         $("#left-maincontent").scrollTop(move);
-        console.log(h1);
-        console.log(hx);
+
     });
 
     /*单选、多选后添加样式*/
@@ -303,4 +295,34 @@ $(function () {
     var winWidth = $(document).width();
     var leftWidth = winWidth * 0.6;
     // $("#sign").css("margin-left",leftWidth);
+
+
+    /*做完题向后台传送数据*/
+    $("#submit").on("click", function () {
+        for (var w = 0; w < finishAnswers.length; w++) {
+            for (var y = 0; y < finishAnswers[w].questionList.length; y++) {
+                for (var u = 0; u < ques; u++) {
+                    var inputId = $(".ques:eq(" + u + ") input").attr("name");
+                    var textareaId = $(".ques:eq(" + u + ") textarea").attr("name");
+                    if (textareaId == finishAnswers[w].questionList[y].id) {
+                        finishAnswers[w].questionList[y].finishAnswer = $(".ques:eq(" + u + ") textarea").val();
+                    } else if (inputId == finishAnswers[w].questionList[y].id) {
+                        finishAnswers[w].questionList[y].finishAnswer = $(".ques:eq(" + u + ") input").val();
+                    }
+                }
+            }
+        }
+        console.log(finishAnswers);
+        $.ajax({
+            type: "POST", //请求方式
+            data: {
+                "answer": JSON.stringify(finishAnswer)
+            },
+            // data:$('#que').serialize(),
+            url: "testing.json", //请求的地址
+            datatype: "json",
+            cache: false,
+            async: false
+        });
+    });
 });

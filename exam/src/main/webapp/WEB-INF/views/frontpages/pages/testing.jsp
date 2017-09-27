@@ -86,7 +86,7 @@
 				</div>
 				<!-- /.modal-body -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" onclick="submitTo()">提交答卷</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="submit">提交答卷</button>
 					<button type="button" class="btn btn-default" onclick="$('#demoModalagain').modal('hide');">取消提交</button>
 				</div>
 			</div>
@@ -117,11 +117,6 @@
 	<script type="text/javascript" src="/exam/static/frontpages/js/jquery-2.1.1.js"></script>
 	<script type="text/javascript" src="/exam/static/frontpages/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/exam/static/frontpages/js/testing.js"></script>
-	<script type="text/javascript">
-		function submitTo() {
-			$("#submit").click();
-		}
-	</script>
 </body>
 
 </html>
