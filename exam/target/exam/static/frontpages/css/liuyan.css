@@ -1,0 +1,157 @@
+.liuyan_logo{
+	width: 350px;
+	height: 70px;
+	position:relative;
+	margin-top: 120px;
+	left: 0;
+	background-image: url(../images/liuyan_02.gif);
+	background-size: 100% 100%;
+}
+
+.liuyan_con{
+	width: 84%;
+	height: 390px;/*响应式*/
+	position: relative;
+	top: 110px;
+	left: 12%;
+	padding-top: 20px;
+	padding-left: 15px;
+	background-color: rgb(244,241,230);
+	-moz-border-radius-topleft:25px;
+	-moz-border-radius-topright:25px;
+	-webkit-border-top-left-radius:25px;
+	-webkit-border-top-right-radius:25px;
+	box-shadow: inset 1px 1px 0 1px #ccc;
+}
+
+@media screen and (min-width: 1920px){
+	.liuyan_logo{
+		width: 400px;
+		height: 90px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: url(../images/liuyan_02.gif);
+		background-size: 100% 100%;
+	}
+	.liuyan_con{
+		width: 84%;
+		height: 675px;
+		position: absolute;
+		top: 250px;
+		left: 10%;
+		padding-top: 20px;
+		padding-left: 15px;
+		background-color: rgb(244,241,230);
+		-moz-border-radius-topleft:25px;
+		-moz-border-radius-topright:25px;
+		-webkit-border-top-left-radius:25px;
+		-webkit-border-top-right-radius:25px;
+		box-shadow: inset 1px 1px 0 1px #ccc;
+	}
+}
+.I_liuyan{
+	width: 100px;
+	height: 20px;
+	display: inline-block;
+	font-size: 20px;
+    margin-left: 80px;
+	color: rgb(134,67,9);
+	cursor: pointer;
+}
+.I_liuyan a{
+	text-decoration: none;
+	color: rgb(134,67,9);
+}
+.liu_record{
+	width: 90%;
+	height: 345px;
+	position: absolute;
+	top:70px;
+	left: 5%;
+	overflow: auto;
+	overflow-x: hidden;
+}
+@media only screen and (min-width:1920px ) {
+	.liu_record{
+		width: 90%;
+		height: 625px;
+		position: absolute;
+		top:70px;
+		left: 5%;
+		overflow: auto;
+		overflow-x: hidden;
+	}
+}
+.liuyan_every1{
+	width: 100%;
+	height:auto;
+	min-height: 100px;
+	position: relative;
+	border-top: 1px solid #969595;
+	text-align: left;
+}
+
+.liuyan_every1 .user{
+	position:absolute;
+	left:25px;
+	top: 80px;
+	font-size: 12px;
+	color: rgb(4,4,4);
+}
+.liuyan_every1 .touxiang{
+	width: 65px;
+	height:65px;
+	position:absolute;
+	left:5px;
+	top: 10px;
+	background-image: url(../images/liuyan_06.gif);
+	background-size: 100% 100%;
+}
+
+.liuyan_every1 .huifu{
+	position: relative;
+	left: 80%;
+	bottom: 5px;
+	color: rgb(134,67,9);
+	font-size: 12px;
+}
+.liuyan_every1 .time{
+	position: relative;
+	left:85%;
+	bottom: 5px;
+	font-size: 10px;
+}
+
+.user_words{
+	position:relative;
+	left: 120px;
+	font-size: 15px;
+	 margin-top: 10px;
+}
+
+
+.word_p{
+	width: 70%;
+	height: auto;
+	word-wrap:break-word;
+}
+
+.user_words span{
+	color: #52b3dc;
+}
+.con_display{
+	width:20px;
+	height:8px;
+	position:absolute;
+	right:20px;
+	top: 15px;
+	background-image: url(../images/liuyan_14.gif);
+	background-size: 100% 100%;
+}
+.huifu{
+	cursor: pointer;
+}
+.back{
+	 color: #81818b;
+}

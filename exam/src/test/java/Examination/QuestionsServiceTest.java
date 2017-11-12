@@ -1,7 +1,7 @@
 package Examination;
 
 import com.bluemsun.common.entitys.Question;
-import com.bluemsun.common.entitys.Questions;
+import com.bluemsun.common.vo.QuestionsVo;
 import com.bluemsun.service.Examination.QuestionsService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -22,18 +22,18 @@ public class QuestionsServiceTest {
 
     @Test
     public void addQuestions() throws Exception {
-        Questions questions = new Questions();
-        questions.setQuestionsTitle("作文。请你在30分钟内完成150字作文");
-        questions.setQuestionsTypeId("2c9903c4-d9ac-49f9-ab28-cf4a8fe906ae");
+        QuestionsVo questions = new QuestionsVo();
+        questions.setQuestionsTitle("造句。造个屁");
+        questions.setQuestionsTypeId("07c14a5d-5759-421e-9434-cc4bcc9444e8");
         questions.setUnitId("14e12df5-84ee-480d-a82b-55ec8c3329c7");
         // questions.setQuestionsArticle("这是完型填空的文章");
         List<Question> questionList = new ArrayList<Question>();
-        for(int i = 0; i < 1; i++) {
+        for(int i = 0; i < 5; i++) {
             Question question = new Question();
-            question.setQuestionOutline("以下是作文的条件");
+            question.setQuestionOutline("吃屁" + i);
             question.setQuestionAnswer("答案" + i);
             question.setQuestionAnalysis("解析" + i);
-            question.setQuestionMark(30);
+            question.setQuestionMark(2);
             question.setQuestionNumber(i);
             questionList.add(question);
         }
@@ -42,7 +42,7 @@ public class QuestionsServiceTest {
 
     @Test
     public void deleteQuestions() throws Exception {
-        questionsService.deleteQuestions("841b99ea-efac-4fe1-927c-a0f9e663c119");
+        questionsService.deleteQuestions("35533b26-d5e8-487b-a03f-69fab37dd7e0");
     }
 
 //    @Test

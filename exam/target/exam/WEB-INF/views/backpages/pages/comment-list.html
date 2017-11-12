@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../css/skin.css"  />
+	<title>评论管理</title>
+</head>
+
+<body>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论管理 </nav>
+	<div class="page-container">
+
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> </span> <span class="r">共有数据：<strong>88</strong> 条</span> </div>
+		<div class="mt-20">
+			<table class="table table-border table-bordered table-hover table-bg table-sort">
+				<thead>
+					<tr class="text-c">
+						<th width="60">ID</th>
+						<th width="60">用户名</th>
+						<th width="80">留言内容</th>
+						<th width="60">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-c">
+						<td>1</td>
+						<td><a href="javascript:;">张三</a></td>
+						<td class="text-l">
+							<div>留言内容</div>
+						</td>
+						<td class="td-manage"><a title="删除" href="javascript:;" onclick="del()" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr>
+					<tr class="text-c">
+						<td>1</td>
+						<td><a href="javascript:;">张三</a></td>
+						<td class="text-l">
+							<div>留言内容</div>
+						</td>
+						<td class="td-manage"><a title="删除" href="javascript:;" onclick="del()" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr>
+					<tr class="text-c">
+						<td>1</td>
+						<td><a href="javascript:;">张三</a></td>
+						<td class="text-l">
+							<div>留言内容</div>
+						</td>
+						<td class="td-manage"><a title="删除" href="javascript:;" onclick="del()" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr>
+					<tr class="text-c">
+						<td>1</td>
+						<td><a href="javascript:;">张三</a></td>
+						<td class="text-l">
+							<div>留言内容</div>
+						</td>
+						<td class="td-manage"><a title="删除" href="javascript:;" onclick="del()" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!--_footer 作为公共模版分离出去-->
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/layer.js"></script>
+	<script type="text/javascript" src="../js/H-ui.min.js"></script>
+	<script type="text/javascript" src="../js/H-ui.admin.js"></script>
+	<!--/_footer /作为公共模版分离出去-->
+
+
+	<script>
+		/*删除*/
+		function del() {
+			layer.confirm('确定要删除吗？', {
+				btn: ['确认', '取消'] //按钮
+			}, function () {
+				layer.msg('删除成功', {
+					icon: 1
+				});
+			}, function () {
+				layer.msg({
+					time: 2000 //2s后自动关闭
+				});
+			});
+		}
+	</script>
+</body>
+
+</html>

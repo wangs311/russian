@@ -54,5 +54,14 @@ public class QuestionsTypeService {
         }
     }
 
+
+    /**
+    * @Description: 根据大题id查询其题型
+    * @Date: 2017/10/9 14:37
+    */
+    public QuestionsType selectById(String id) {
+        return questionsTypeDao.selectById(id);
+    }
+
     
 }

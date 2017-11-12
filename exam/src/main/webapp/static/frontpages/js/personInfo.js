@@ -29,5 +29,27 @@ $(function () {
     $("#cancel").on("click", function () {
         $("#reset").click();
         $(".warning:eq(0)").html("");
-    })
+    });
+
+    //表格里的数据请求
+    $.ajax({
+        type: "POST",
+        url: "/exam/ExaminationController/getPersonal", //表格里的数据请求的地址
+        async: false,
+        dataType: "JSON",
+        //请求成功后
+        success: function (data) {
+            var studentName = data[0].studentName;
+            $(".student-name").html(studentName);
+            for(var i=0;i<data[1].length;i++){
+                $("tbody").append('<tr><td>'+data[1][i].editionName+'</td><td>'+data[1][i].unitName+'</td><td><a class="examinationName" id="'+data[1][i].id+'" examinationId="'+data[1][i].examinationId+'">'+data[1][i].examinationName+'</a></td><td>'+data[1][i].dateFormat+'</td><td>'+data[1][i].finishMark+'</td></tr>')
+            }
+        }
+    });
+
+    $(".examinationName").click(function () {
+        var examinationIda = $(this).attr("examinationId");
+        var ida = $(this).attr("id");
+        window.location.href="/exam/studentController/toChecking?examinationIda="+examinationIda+"&ida="+ida+"";
+    });
 });

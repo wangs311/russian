@@ -39,7 +39,7 @@ public class ExaminationServiceTest {
 
     @Test
     public void selectExamination() throws Exception {
-        ExaminationVo examinationVo = examinationService.selectExamination("be4e6440-a2b1-4aa5-808e-2da1a51c5b61");
+        ExaminationVo examinationVo = examinationService.selectExamination("623e25f8-afd5-40a6-ba94-4485836cf96b");
         System.out.println(Arrays.asList(examinationVo.getQuestionsList()));
     }
 

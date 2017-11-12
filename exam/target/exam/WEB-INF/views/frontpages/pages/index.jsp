@@ -13,10 +13,16 @@
 <body>
 <div class="wrap">
 	<div id="header">
-		<div id="logo"><img src="/exam/static/frontpages/images/logo.png"></div>
-		<div id="sign">
-			<div id="leaf"></div>
-			<a href="/studentController/logout" id="login">登出</a>
+		<div id="header-content">
+			<div id="logo">
+				<img src="/exam/static/frontpages/images/nenu-logo.png" class="img-responsive">
+				<img src="/exam/static/frontpages/images/foreign-logo.png" class="img-responsive">
+				<img src="/exam/static/frontpages/images/logo.png" class="img-responsive" style="margin-left: 40px;">
+			</div>
+			<div id="sign">
+				<div id="leaf"></div>
+				<a href="/exam/studentController/logout" id="login">登出</a>
+			</div>
 		</div>
 	</div>
 	<!--头部-->
@@ -25,7 +31,7 @@
 			<ul>
 				<li id="test"><a href="#"><img src="/exam/static/frontpages/images/test2.png" id="test2"></a></li>
 				<li id="liuyan"><a href="liuyan.html"><img src="/exam/static/frontpages/images/liuyan2.png"></a></li>
-				<li id="info"><a href="personInfo.html"><img src="/exam/static/frontpages/images/info2.png"></a></li>
+				<li id="info"><a href="/exam/studentController/toPersonal"><img src="/exam/static/frontpages/images/info2.png"></a></li>
 			</ul>
 
 			<div class="modal fade" id="demoModal" data-backdrop="static">

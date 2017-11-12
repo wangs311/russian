@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+    <link rel="stylesheet" href="../css/liuyan.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/liuyan_bootstrap.css" />
+</head>
+<body>
+    <div class="wrap">
+    <!--头部-->
+		<div id="header">
+			<div id="header-content">
+				<div id="logo"><img src="../images/logo.png"></div>
+				<div id="sign">
+					<div id="leaf"></div>
+					<a href="##" id="login">登录</a>
+				</div>
+			</div>
+		</div>
+
+	<!--主体留言-->	
+		<div class="main">
+			<div class="liuyan_logo"></div>    <!--放留言的logo-->
+			<div class="liuyan_con">
+				<div class="I_liuyan btn btn-primary" data-toggle="modal" data-target="#mymodal-link1">我要留言</div>
+				<div class="I_liuyan" ><a href="#">返回首页</a></div>
+				<div class="liu_record" id="woyao">
+					<div class="liuyan_every1">
+						<span class="touxiang"></span>
+						<span class="user">小明</span>
+						<!-- <span class="con_display"></span> -->
+						<div class="word_p">
+							<p class="user_words" >aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>	
+						</div>	
+						<span class="huifu" data-toggle="modal" data-target="#mymodal-link2">回复</span>
+						<span class="time">2017-08-18 09:55:40</span>
+					</div>
+					
+					<div class="liuyan_every1">
+						<span class="touxiang"></span>
+						<span class="user">小李</span>
+						<!-- <span class="con_display"></span> -->
+						<div class="word_p">
+							<p class="user_words">不是cc是b</p>	
+							<p class="user_words back"><span>@小红&nbsp&nbsp</span>cc</p>	
+						</div>	
+						<span class="huifu" data-toggle="modal" data-target="#mymodal-link2">回复</span>
+						<span class="time">2017-08-18 09:55:40</span>
+					</div>
+
+					<div class="liuyan_every1">
+						<span class="touxiang"></span>
+						<span class="user">小红</span>
+						<!-- <span class="con_display"></span> -->
+						<div class="word_p">
+							<p class="user_words">cc</p>	
+						</div>	
+						<span class="huifu" data-toggle="modal" data-target="#mymodal-link2">回复</span>
+						<span class="time">2017-08-18 09:55:40 </span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	<!--发表评论弹出窗部分-->
+		<div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link1">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+					<div class="modal-header">
+						
+						<button type="button" class="close" data-dismiss="modal">X</button>
+					</div>
+					<div class="modal-body">
+						<div class="my_con">
+							<form action="">
+								<div class="text">
+									<textarea placeholder="我要说：" id="text1"></textarea>
+								</div>
+								<div class="my_button">
+									<button id="btn1" data-dismiss="modal">提交</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--弹出窗部分结束-->	
+	<!--回复弹出窗部分-->
+		<div class="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link2">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+					<div class="modal-header">
+						
+						<button type="button" class="close" data-dismiss="modal">X</button>
+					</div>
+					<div class="modal-body">
+						<div class="my_con">
+							<form action="">
+								<div class="text">
+									<textarea placeholder="回复：" id="text2"></textarea>
+								</div>
+								<div class="my_button">
+									<button id="btn2" data-dismiss="modal">提交</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+	<!--弹出窗部分结束-->	
+	</div>
+    
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js" ></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/test.js" ></script>
+    
+  </body>
+</html>

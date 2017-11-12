@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+
 <!DOCTYPE HTML >
 <html>
 
@@ -11,12 +12,19 @@
 </head>
 
 <body>
-	<div id="examinationId" style="display:none;"></div>
-	<div id="header" class="row">
-		<div id="logo" class="col-md-4"><img src="/exam/static/frontpages/images/logo.png" class="img-responsive"></div>
-		<div id="sign" class="col-md-3">
-			<div id="leaf"></div>
-			<a href="/studentController/logout" id="login">登出</a>
+
+	<div id="examId" style="display:none;">${examinationId}</div>
+	<div id="header">
+		<div id="header-content">
+			<div id="logo">
+				<img src="/exam/static/frontpages/images/nenu-logo.png" class="img-responsive">
+				<img src="/exam/static/frontpages/images/foreign-logo.png" class="img-responsive">
+				<img src="/exam/static/frontpages/images/logo.png" class="img-responsive" style="margin-left: 40px;">
+			</div>
+			<div id="sign" >
+				<div id="leaf"></div>
+				<a href="/studentController/logout" id="login">登出</a>
+			</div>
 		</div>
 	</div>
 	<div id="main">
@@ -28,18 +36,19 @@
 				</ul>
 			</div>
 			<div id="left-maincontent" class="content">
-				<form id="que">
-					
+				<form id="que" >
+
 				</form>
+				<div style="height:40px;"></div>
 			</div>
 		</div>
 		<div id="right-main">
-			<div class="time-item">
-				<span id="time-icon"></span>
-				<span id="hour_show">0时</span>
-				<span id="minute_show">0分</span>
-				<span id="second_show">0秒</span>
-			</div>
+			<%--<div class="time-item">--%>
+				<%--<span id="time-icon"></span>--%>
+				<%--<span id="hour_show">0时</span>--%>
+				<%--<span id="minute_show">0分</span>--%>
+				<%--<span id="second_show">0秒</span>--%>
+			<%--</div>--%>
 			<div id="right-bottom">
 				<div id="right-bottom-header">
 					<div id="que-situation">已完成：
@@ -86,7 +95,7 @@
 				</div>
 				<!-- /.modal-body -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" id="submit">提交答卷</button>
+					<button type="button" class="btn btn-default submit" data-dismiss="modal" id="submit">提交答卷</button>
 					<button type="button" class="btn btn-default" onclick="$('#demoModalagain').modal('hide');">取消提交</button>
 				</div>
 			</div>
@@ -106,7 +115,7 @@
 				</div>
 				<!-- /.modal-body -->
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" onclick="submitTo()">确认</button>
+					<button type="button" class="btn btn-default submit" data-dismiss="modal" >确认</button>
 				</div>
 			</div>
 			<!-- /.modal-content -->

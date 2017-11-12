@@ -26,7 +26,13 @@
     2.支持自定义表单数据类型转换
     3.支持使用 @NumberFormat， @DateTimeFormat， @RequestBody， @ResponseBody 注解
   -->
-  <mvc:annotation-driven></mvc:annotation-driven>
+  <mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+      <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+        <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
+      </bean>
+    </mvc:message-converters>
+  </mvc:annotation-driven>
 
   <!-- 使得静态资源得以生效 -->
   <!--<mvc:default-servlet-handler/>-->

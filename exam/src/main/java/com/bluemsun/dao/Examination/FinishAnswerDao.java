@@ -26,8 +26,8 @@ public class FinishAnswerDao {
     * @Date: 2017/9/14 8:43
     */
     public void addFinishAnswer(FinishAnswer finishAnswer) {
-        String sql = "INSERT INTO finish_answer (id, finish_examination_id, question_id, finish_answer_content) VALUES (?, ?, ?, ?)";
-        Object[] params = {UnitOfUUID.IdOfUUID(), finishAnswer.getFinishExaminationId(), finishAnswer.getQuestionId(), finishAnswer.getFinishAnswerContent()};
+        String sql = "INSERT INTO finish_answer (id, finish_examination_id, question_id, finish_answer_content, finish_answer_mark) VALUES (?, ?, ?, ?, ?)";
+        Object[] params = {UnitOfUUID.IdOfUUID(), finishAnswer.getFinishExaminationId(), finishAnswer.getQuestionId(), finishAnswer.getFinishAnswerContent(), finishAnswer.getFinishAnswerMark()};
         jdbcTemplate.update(sql, params);
     }
 
@@ -60,9 +60,10 @@ public class FinishAnswerDao {
     public FinishAnswer selectOneFinAns(String questionId, String FinishExaminationId) {
         String sql = "SELECT id, finish_examination_id, question_id, finish_answer_content, finish_answer_mark FROM finish_answer WHERE question_id = ? AND finish_examination_id = ?";
         RowMapper<FinishAnswer> rowMapper = new BeanPropertyRowMapper<FinishAnswer>(FinishAnswer.class);
+        Object[] params = new Object[]{questionId, FinishExaminationId};
         FinishAnswer finishAnswer = null;
         try {
-            finishAnswer = jdbcTemplate.queryForObject(sql, rowMapper, questionId, FinishExaminationId);
+            finishAnswer = jdbcTemplate.queryForObject(sql, rowMapper, params);
         }catch(EmptyResultDataAccessException e) {
             return null;
         }

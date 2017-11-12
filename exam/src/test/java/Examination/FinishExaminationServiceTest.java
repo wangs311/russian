@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,14 +43,9 @@ public class FinishExaminationServiceTest {
     }
 
     @Test
-    public void selectFinExamByUnit() throws Exception {
-        String unitId = "e5f07a50-8e35-4638-a8e4-ac7faad88d65";
-        int grade = 0;
-        String studentId = "bb95ffc7-dc8f-4e66-825a-38b18ca74062";
-        List<FinishExaminationVo> list = finishExaminationService.selectFinExamByUnit(unitId, grade, studentId);
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getStudentName() + list.get(i).getExaminationName());
-        }
+    public void selectFromStudent() {
+        List<FinishExaminationVo> list = new ArrayList<FinishExaminationVo>();
+        list = finishExaminationService.selectFromStudent("57a33c8b-8c8c-4a1b-abe4-72c47d15fb54");
     }
 
 }

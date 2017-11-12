@@ -22,7 +22,15 @@ public class FrontInterceptor implements HandlerInterceptor {
 
         HttpSession session = request.getSession();
         String uri = request.getRequestURI().substring(6);
-
+        if(uri.contains("back")) {
+            if(uri.equals("backTeacherController/login")) {
+                return true;
+            }else if(session.getAttribute("teacher") != null) {
+                return true;
+            }
+            response.sendRedirect("/exam/loginBack.jsp");
+            return false;
+        }
         if(uri.equals("studentController/login")) {
             return true;
         }else if(session.getAttribute("student") != null) {

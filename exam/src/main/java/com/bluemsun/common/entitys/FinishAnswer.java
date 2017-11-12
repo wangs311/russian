@@ -16,7 +16,7 @@ public class FinishAnswer {
 	
 	private String finishAnswerContent;
 	
-	private String finishAnswerMark;
+	private int finishAnswerMark;
 
 	public String getId() {
 		return id;
@@ -50,14 +50,16 @@ public class FinishAnswer {
 		this.finishAnswerContent = finishAnswerContent;
 	}
 
-	public String getFinishAnswerMark() {
+	public int getFinishAnswerMark() {
 		return finishAnswerMark;
 	}
 
-	public void setFinishAnswerMark(String finishAnswerMark) {
+	public void setFinishAnswerMark(int finishAnswerMark) {
 		this.finishAnswerMark = finishAnswerMark;
 	}
-	
-	
-	
+
+
+
+
+
 }

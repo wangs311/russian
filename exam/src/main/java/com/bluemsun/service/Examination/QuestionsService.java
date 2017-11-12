@@ -37,7 +37,16 @@ public class QuestionsService {
     * @Date: 2017/8/29 15:05
     */
     @Transactional
-    public void addQuestions(Questions questions, List<Question> questionList) {
+    public void addQuestions(QuestionsVo questionsVo, List<Question> questionList) {
+        Questions questions = new Questions();
+        questions.setQuestionsTitle(questionsVo.getQuestionsTitle());
+        questions.setQuestionsArticle(questionsVo.getQuestionsArticle());
+        questions.setQuestionsTypeId(questionsVo.getQuestionsTypeId());
+        questions.setUnitId(questionsVo.getUnitId());
+
+
+
+
         int mark = questionList.get(0).getQuestionMark() * questionList.size();
         questions.setQuestionsMark(mark);
         String questionsId = questionsDao.addQuestions(questions);
@@ -65,18 +74,18 @@ public class QuestionsService {
     * @Description: 根据单元和题型查询出对应大题
     * @Date: 2017/8/29 16:00
     */
-    public List<QuestionsVo> selectQuestionsByUnitAndType(String unitId, String questionsTypeId, String finishExaminationId) {
+    public List<QuestionsVo> selectQuestionsByUnitAndType(String unitId, String questionsTypeId) {
         List<QuestionsVo> questionsList = questionsDao.selectQuestionsByUnitAndType(unitId, questionsTypeId);
         for(int i = 0; i < questionsList.size(); i++) {
             QuestionsVo questionsVo = questionsList.get(i);
             List<QuestionVo> list = questionDao.selectAllQuestion(questionsVo.getId());
-            for(int j = 0; j < list.size(); j++) {
-                list.get(j).setOutline(list.get(j).getQuestionOutline().split("#"));
-                if(finishExaminationId != null) {
-                    FinishAnswer finishAnswer = finishAnswerDao.selectOneFinAns(list.get(i).getId(), finishExaminationId);
-                    list.get(i).setFinishAnswer(finishAnswer);
-                }
-            }
+//            for(int j = 0; j < list.size(); j++) {
+//                list.get(j).setOutline(list.get(j).getQuestionOutline().split("#"));
+//                if(finishExaminationId != null) {
+//                    FinishAnswer finishAnswer = finishAnswerDao.selectOneFinAns(list.get(i).getId(), finishExaminationId);
+//                    list.get(i).setFinishAnswer(finishAnswer);
+//                }
+//            }
             questionsList.get(i).setQuestionList(list);
         }
         return questionsList;

@@ -21,7 +21,7 @@ public class QuestionsTypeServiceTest {
 
     @Test
     public void addQuestionsType() throws Exception {
-        String questionsType = "作文";
+        String questionsType = "造句";
         questionsTypeService.addQuestionsType(questionsType);
     }
 

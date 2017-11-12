@@ -60,4 +60,22 @@ public class QuestionsTypeDao {
         jdbcTemplate.update(sql, id);
     }
 
+
+    /**
+    * @Description: 查询一道大题的题型
+    * @Date: 2017/10/9 14:31
+    */
+    public QuestionsType selectById(String id) {
+        String sql = "SELECT questions_type.id, questions_type_name FROM questions_type INNER JOIN questions ON questions.questions_type_id = questions_type.id WHERE questions.id = ?";
+        RowMapper<QuestionsType> rowMapper = new BeanPropertyRowMapper(QuestionsType.class);
+        QuestionsType questionsType = null;
+        try {
+            questionsType = jdbcTemplate.queryForObject(sql, rowMapper, id);
+        }catch(EmptyResultDataAccessException e) {
+            return null;
+        }
+        return questionsType;
+    }
+
+
 }

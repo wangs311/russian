@@ -54,6 +54,14 @@ public class StudentService {
     }
 
 
+    /**
+    * @Description: 根据用户名查询一个用户
+    * @Date: 2017/10/9 20:38
+    */
+    public Student selectByNum(String studentNumber, String studentPassword) {
+        return studentDao.selectOneStudent(studentNumber, studentPassword);
+    }
+
 
     /**
     * @Description: 查询出所有的学生用户

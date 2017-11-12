@@ -12,13 +12,17 @@
 
 <body>
 	<div class="wrap mask">
-		<div id="header">
+		<div id="header" class="row">
 			<div id="header-content">
-				<div id="logo"><img src="static/frontpages/images/logo.png"></div>
-				<div id="sign">
-					<div id="leaf"></div>
-					<a href="##" id="login">返回首页</a>
+				<div id="logo">
+					<img src="/exam/static/frontpages/images/nenu-logo.png" class="img-responsive">
+					<img src="/exam/static/frontpages/images/foreign-logo.png" class="img-responsive">
+					<img src="/exam/static/frontpages/images/logo.png" class="img-responsive" style="margin-left: 40px;">
 				</div>
+				<%--<div id="sign" class="col-md-3">--%>
+					<%--<div id="leaf"></div>--%>
+					<%--<a href="##" id="login">返回首页</a>--%>
+				<%--</div>--%>
 			</div>
 		</div>
 		<!--头部-->
